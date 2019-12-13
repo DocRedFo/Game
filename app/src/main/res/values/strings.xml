@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Game</string>
     <string name="textView" />
+    <string name="desktop">Desktop</string>
+    <string name="downloads">Downloads</string>
+    <string name="documents">Documents</string>
+    <string name="music">Music</string>
+    <string name="help">help</string>
+    <string name="ls">ls</string>
+    <string name="cd">cd</string>
+    <string name="open">open</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
+    <string name="enter">Enter</string>
 </resources>

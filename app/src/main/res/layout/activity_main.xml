@@ -10,12 +10,16 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/textView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center"
-        />
+        app:layout_constraintVertical_bias="0.0"
+        android:textColor="#006400"
+        android:shadowColor="#fff"/>
 
     <EditText
         android:id="@+id/editText"
@@ -24,7 +28,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:textColor="#000"
+        android:shadowColor="#fff"
+        android:inputType="text"
+        />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -42,28 +50,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Desktop" />
+            android:text="@string/desktop"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonDownloads"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Downloads" />
+            android:text="@string/downloads"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonDocuments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Documents" />
+            android:text="@string/documents"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonMusic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Music" />
+            android:text="@string/music"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -81,51 +105,78 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="help" />
+            android:text="@string/help"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonLs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ls" />
+            android:text="@string/ls"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonCd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="cd" />
+            android:text="@string/cd"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonOpen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="open" />
+            android:text="@string/open"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="start" />
+            android:text="@string/start"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
 
         <Button
             android:id="@+id/buttonStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="stop" />
+            android:text="@string/stop"
+            android:textColor="#000"
+            android:shadowColor="#fff"
+            android:textSize="12sp"
+            />
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonEnter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Enter"
+        android:text="@string/enter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        android:textColor="#000"
+        android:shadowColor="#fff"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

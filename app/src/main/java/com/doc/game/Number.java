@@ -1,5 +1,4 @@
 package com.doc.game;
-import java.util.Scanner;
 
 public abstract class Number {
     //Команды
@@ -41,6 +40,7 @@ public abstract class Number {
     private int dir = 0;
     //Нахождение file командой ls
     private int FDir = 0;
+    MainActivity mainActivity = new MainActivity();
 
     public void setPyFlag(boolean pyFlag) {
         this.pyFlag = pyFlag;
@@ -203,41 +203,71 @@ public abstract class Number {
     }
     //Обработчик команд в "терминале"
     public void terminal(){
-        Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         while (flag){
-            String string = scanner.nextLine();
+            String string = mainActivity.editText.getText().toString();
             if (string.equals(getHelp()) || string.equals(getHelp() + " ")){
-                System.out.println("\nСписок доступных команд:" +
+                String str = "\nСписок доступных команд:" +
                         "\nhelp - вызов помощи" +
                         "\nls - обзор папки" +
                         "\ncd [аргумент] - перемещение между папками" +
                         "\nopen [аргумент] - открытие файлов или приложений" +
                         "\nstart [аргумент] - запуск служб или процессов" +
-                        "\nstop [аргумент] - остановка служб или процессов\n");
+                        "\nstop [аргумент] - остановка служб или процессов\n";
+                mainActivity.textView.setText(str);
             }
             else if (string.equals(getLs()) || string.equals(getLs() + " ")){
                 if (getDir() == 0) {
-                    if (getFDir() == 0) System.out.println("\n" + getDesktop() + "\n" + getDownloads() + "\n" + getDocuments() + "\n" + getMusic() + "\n" + getFile() + "\n");
-                    else System.out.println("\n" + getDesktop() + "\n" + getDownloads() + "\n" + getDocuments() + "\n" + getMusic() + "\n");
+                    if (getFDir() == 0) {
+                        String str = "\n" + getDesktop() + "\n" + getDownloads() + "\n" + getDocuments() + "\n" + getMusic() + "\n" + getFile() + "\n";
+                        mainActivity.textView.setText(str);
+                    }
+                    else {
+                        String str = "\n" + getDesktop() + "\n" + getDownloads() + "\n" + getDocuments() + "\n" + getMusic() + "\n";
+                        mainActivity.textView.setText(str);
+                    }
                 }
                 else if (getDir() == 1){
-                    if (getFDir() == 1) System.out.println("\npicture" + "\nvideo.jpn" + "\n" + getFile() + "\nнидфорспид.game\n");
-                    else System.out.println("\npicture" + "\nvideo.jpn" + "\nнидфорспид.game\n");
+                    if (getFDir() == 0) {
+                        String str = "\npicture" + "\nvideo.jpn" + "\n" + getFile() + "\nнидфорспид.game\n";
+                        mainActivity.textView.setText(str);
+                    }
+                    else {
+                        String str = "\npicture" + "\nvideo.jpn" + "\nнидфорспид.game\n";
+                        mainActivity.textView.setText(str);
+                    }
                 }
                 else if (getDir() == 2){
-                    if (getFDir() == 2) System.out.println("\njimmy.jar" + "\n" + getFile() + "\nкит.photo" + "\nmichael\n" + "mail\n");
-                    else System.out.println("\njimmy.jar" + "\nкит.photo" + "\nmichael\n" + "mail\n");
+                    if (getFDir() == 0) {
+                        String str = "\njimmy.jar" + "\n" + getFile() + "\nкит.photo" + "\nmichael\n" + "mail\n";
+                        mainActivity.textView.setText(str);
+                    }
+                    else {
+                        String str = "\njimmy.jar" + "\nкит.photo" + "\nmichael\n" + "mail\n";
+                        mainActivity.textView.setText(str);
+                    }
                 }
                 else if (getDir() == 3){
-                    if (getFDir() == 3) System.out.println("\nschool.doc" + "\npython" + "\nintresting" + "\nпароли.txt" + "\n" + getFile() + "\n");
-                    else System.out.println("\nschool.doc" + "\npython" + "\nintresting" + "\nпароли.txt\n");
+                    if (getFDir() == 0) {
+                        String str = "\nschool.doc" + "\npython" + "\nintresting" + "\nпароли.txt" + "\n" + getFile() + "\n";
+                        mainActivity.textView.setText(str);
+                    }
+                    else {
+                        String str = "\nschool.doc" + "\npython" + "\nintresting" + "\nпароли.txt\n";
+                        mainActivity.textView.setText(str);
+                    }
                 }
                 else if (getDir() == 4){
-                    if (getFDir() == 4) System.out.println("\nQueen.alb" + "\nOne\n" + getFile() + "\nКороль и Шут");
-                    else System.out.println("\nQueen.alb" + "\nOne" + "\nКороль и Шут\n");
+                    if (getFDir() == 0) {
+                        String str = "\nQueen.alb" + "\nOne\n" + getFile() + "\nКороль и Шут";
+                        mainActivity.textView.setText(str);
+                    }
+                    else {
+                        String str = "\nQueen.alb" + "\nOne" + "\nКороль и Шут\n";
+                        mainActivity.textView.setText(str);
+                    }
                 }
-                else System.out.println("Непредвиденная ошибка!");
+                else mainActivity.textView.setText("Непредвиденная ошибка!");
             }
             else if (string.equals(getCd()) || string.equals(getCd() + " ") || string.equals(getCd() + " " + "/") || string.equals(getCd() + " " + "..") ||
                     string.equals(getCd() + " " + ".." + " ")){
@@ -246,25 +276,25 @@ public abstract class Number {
             else if (string.equals(getCd() + " " + getDesktop()) || string.equals(getCd() + " " + getDesktop() + " ") ||
                     string.equals(getCd() + " " + getDesktop() + "/")){
                 if (getDir() == 0) setDir(2);
-                else System.out.println("Каталог не найден");
+                else mainActivity.textView.setText("Каталог не найден");
             }
             else if (string.equals(getCd() + " " + getDownloads()) || string.equals(getCd() + " " + getDownloads() + " ")
                     || string.equals(getCd() + " " + getDownloads() + "/")){
                 if (getDir() == 0) setDir(1);
-                else System.out.println("Каталог не найден");
+                else mainActivity.textView.setText("Каталог не найден");
             }
             else if (string.equals(getCd() + " " + getDocuments()) || string.equals(getCd() + " " + getDocuments() + " ")
                     || string.equals(getCd() + " " + getDocuments() + "/")){
                 if (getDir() == 0) setDir(3);
-                else System.out.println("Каталог не найден");
+                else mainActivity.textView.setText("Каталог не найден");
             }
             else if (string.equals(getCd() + " " + getMusic()) || string.equals(getCd() + " " + getMusic() + " ") ||
                     string.equals(getCd() + " " + getMusic() + "/")){
                 if (getDir() == 0) setDir(4);
-                else System.out.println("Каталог не найден");
+                else mainActivity.textView.setText("Каталог не найден");
             }
             else if (string.equals(getOpen()) || string.equals(getOpen() + " ")){
-                System.out.println("Введите аргумент");
+                mainActivity.textView.setText("Введите аргумент");
             }
             else if (string.equals(getOpen() + " " + "picture") || string.equals(getOpen() + " " + "video.jpn") ||
                     string.equals(getOpen() + " " + "нидфорспид.game") || string.equals(getOpen() + " " + "jimmy.jar") ||
@@ -278,126 +308,123 @@ public abstract class Number {
                     || string.equals(getOpen() + " " + "school.doc" + " ") || string.equals(getOpen() + " " + "intresting" + " ")
                     || string.equals(getOpen() + " " + "пароли.txt" + " ") || string.equals(getOpen() + " " + "Queen.alb" + " ")
                     || string.equals(getOpen() + " " + "One" + " ") || string.equals(getOpen() + " " + "Король и Шут" + " ")){
-                System.out.println("Ошибка!" +
-                        "\nНеизвестный формат");
+                mainActivity.textView.setText("Ошибка!\nНеизвестный формат");
             }
             else if (string.equals(getOpen() + " " + getFile()) || string.equals(getOpen() + " " + getFile() + " ")){
                 if (getDir() == getFDir()) {
-                    System.out.println(getMassage());
+                    mainActivity.textView.setText(getMassage());
                     flag = false;
                 }
                 else {
-                    System.out.println("Файл отсутствует");
+                    mainActivity.textView.setText("Файл отсутствует");
                 }
             }
             else if (string.equals(getOpen() + " " + getMusic()) || string.equals(getOpen() + " " + getDocuments()) || string.equals(getOpen() + " " + getDesktop()) || string.equals(getOpen() + " " + getDownloads()) ||
                     string.equals(getOpen() + " " + getMusic() + " ") || string.equals(getOpen() + " " + getDocuments() + " ") || string.equals(getOpen() + " " + getDesktop() + " ") || string.equals(getOpen() + " " + getDownloads() + " ")){
-                System.out.println("Это каталог");
+                mainActivity.textView.setText("Это каталог");
             }
             else if (string.equals(getOpen() + " " + getMail()) || string.equals(getOpen() + " " + getMail() + " ")){
                 if (getMailDir() == getDir()) {
-                    System.out.println(getMailMassage());
+                    mainActivity.textView.setText(getMailMassage());
                     flag = false;
                 }
                 else {
-                    System.out.println("Файл отсутствует");
+                    mainActivity.textView.setText("Файл отсутствует");
                 }
             }
             else if (string.equals(getStart()) || string.equals(getStart() + " ")){
-                System.out.println("Введите аргумент");
+                mainActivity.textView.setText("Введите аргумент");
             }
             else if (string.equals(getStart() + " " + getPython()) || string.equals(getStart() + " " + getPython() + " ")){
                 if (getPythonDir() == getDir()) {
-                    System.out.println("python запущен");
+                    String str = "python starting";
+                    mainActivity.textView.setText(str);
                     setPyFlag(true);
                     flag = false;
                 }
                 else {
-                    System.out.println("Файл отсутствует");
+                    mainActivity.textView.setText("Файл отсутствует");
                 }
             }
             else if (string.equals(getStop()) || string.equals(getStop() + " ")){
-                System.out.println("Введите аргумент");
+                mainActivity.textView.setText("Введите аргумент");
             }
             else if (string.equals(getStop() + " " + getPython()) || string.equals(getStop() + " " + getPython() + " ")){
                 if (isPyFlag()) {
-                    System.out.println("python остановлен");
+                    String str = "python stopping";
+                    mainActivity.textView.setText(str);
                     setPyFlag(false);
                     flag = false;
                 }
                 else {
-                    System.out.println("Приложение не было запущено");
+                    mainActivity.textView.setText("Приложение не было запущено");
                 }
             }
             else if (string.equals(getPython()) || string.equals(getPython() + " ")){
                 if (getPythonDir() == getDir()) {
-                    System.out.println("--version python 4.4.4 and I think it's lie");
+                    String str = "--version python 4.4.4 and I think it's lie";
+                    mainActivity.textView.setText(str);
                 }
                 else {
-                    System.out.println("Файл отсутствует");
+                    mainActivity.textView.setText("Файл отсутствует");
                 }
             }
             else {
-                System.out.println("Неизвестная команда\nВоспользуйтесь командой help");
+                mainActivity.textView.setText("Неизвестная команда\nВоспользуйтесь командой help");
             }
         }
     }
     //Проверка правильности ответа
     public void check(){
-        Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         while (flag){
-            System.out.print("Введите ответ: ");
-            String string = scanner.nextLine();
+            mainActivity.textView.setText("Введите ответ: ");
+            String string = mainActivity.editText.getText().toString();
             if (string.equals(getAnswer())){
-                System.out.println(getCheckTrueMassage());
+                mainActivity.textView.setText(getCheckTrueMassage());
                 flag = false;
             }
             else {
-                System.out.println(getCheckFailMassage());
+                mainActivity.textView.setText(getCheckFailMassage());
             }
         }
     }
     //Начало, Ввод пароля для входа и знакомство с механикой игры
     public void begin(){
-        System.out.println("Все настройки находятся в изначальном состоянии, в том числе логины и пароли");
-        Scanner scanner = new Scanner(System.in);
+        mainActivity.textView.setText("Все настройки находятся в изначальном состоянии, в том числе логины и пароли");
         String string;
         boolean f = true;
         while (f) {
-            System.out.print("Введите логин: ");
-            string = scanner.nextLine();
+            mainActivity.textView.setText("Введите логин: ");
+            string = mainActivity.editText.getText().toString();
             if (string.equals("root") || string.equals("admin")) {
                 Gamer.setLogin(string);
-                System.out.println();
                 f = false;
             } else {
-                System.out.println("Неверный логин или пароль. Попробуйте снова");
+                mainActivity.textView.setText("Неверный логин или пароль. Попробуйте снова");
             }
         }
         while (!f) {
-            System.out.print("Введите пароль: ");
-            string = scanner.nextLine();
+            mainActivity.textView.setText("Введите пароль: ");
+            string = mainActivity.editText.getText().toString();
             if (string.equals("root") || string.equals("admin") || string.equals("qwerty") || string.equals("123456")){
                 Gamer.setPassword(string);
-                System.out.println();
                 f = true;
             }
             else {
-                System.out.println("Неверный логин или пароль. Попробуйте снова");
+                mainActivity.textView.setText("Неверный логин или пароль. Попробуйте снова");
             }
         }
     }
     //Смена Логина и Пароля
     public void PasswordsAndLogin(){
-        Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         String string;
         while (flag) {
-            System.out.print("Введите новый логин: ");
-            string = scanner.nextLine();
+            mainActivity.textView.setText("Введите новый логин: ");
+            string = mainActivity.editText.getText().toString();
             if (string.equals(Gamer.getLogin())){
-                System.out.println("Логины совпадают!");
+                mainActivity.textView.setText("Логины совпадают!");
             }
             else {
                 Gamer.setLogin(string);
@@ -405,25 +432,25 @@ public abstract class Number {
             }
         }
         while (!flag){
-            System.out.print("Введите новый пароль: ");
-            string = scanner.nextLine();
+            mainActivity.textView.setText("Введите новый пароль: ");
+            string = mainActivity.editText.getText().toString();
             if (string.equals(Gamer.getPassword())){
-                System.out.println("Пароли совпадают!");
+                mainActivity.textView.setText("Пароли совпадают!");
             }
             else if (string.equals(Gamer.getLogin())){
-                System.out.println("Пароль и логин сопадают!");
+                mainActivity.textView.setText("Пароль и логин сопадают!");
             }
             else {
                 Gamer.setPassword(string);
                 while (!flag) {
-                    System.out.print("Подтвердите пароль: ");
-                    string = scanner.nextLine();
+                    mainActivity.textView.setText("Подтвердите пароль: ");
+                    string = mainActivity.editText.getText().toString();
                     if (string.equals(Gamer.getPassword())) {
-                        System.out.println("Поздравляем со сменой логина и пароля");
+                        mainActivity.textView.setText("Поздравляем со сменой логина и пароля");
                         flag = true;
                     }
                     else {
-                        System.out.println("Пароли не совпадают поробуйте снова");
+                        mainActivity.textView.setText("Пароли не совпадают поробуйте снова");
                     }
                 }
             }
@@ -432,10 +459,12 @@ public abstract class Number {
     //Концовка
     public void finish(){
         if (Gamer.getProgress() >= 5){
-            System.out.println("Вы справились с заднаниями, " + Gamer.getName());
+            String string = "Вы справились с заднаниями, " + Gamer.getName();
+            mainActivity.textView.setText(string);
         }
         else {
-            System.out.println("Кажется, что у Вас что-то не получилось, " + Gamer.getName());
+            String string = "Кажется, что у Вас что-то не получилось, " + Gamer.getName();
+            System.out.println(string);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.doc.game;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -41,6 +42,63 @@ public class MainActivity extends AppCompatActivity {
         ButtonStart = findViewById(R.id.buttonStart);
         ButtonStop = findViewById(R.id.buttonStop);
         Enter = findViewById(R.id.buttonEnter);
+
+        ButtonDesktop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { editText.setText("cd Desktop"); }});
+        ButtonDownloads.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { editText.setText("cd Downloads"); }});
+        ButtonDocuments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {editText.setText("cd Documents");}
+        });
+        ButtonMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText("cd Music");
+            }
+        });
+        ButtonHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { editText.setText("help");}
+        });
+        ButtonLs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText("ls");
+            }
+        });
+        ButtonCd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText("cd");
+            }
+        });
+        ButtonOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText("open ");
+            }
+        });
+        ButtonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText("start ");
+            }
+        });
+        ButtonStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.setText("stop ");
+            }
+        });
+        Enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         Number numberOne = new NumberOne();
 
