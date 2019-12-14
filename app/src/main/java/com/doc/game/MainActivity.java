@@ -100,7 +100,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Number numberOne = new NumberOne();
+        Welcome welcome = new Welcome();
+        welcome.setAbout("\tДобро пожаловать!" +
+                "\nЭто игра — текстовый квест, в котором Вас приняли на работу, на неизвестную должность, в неизвестную компанию" +
+                "\nЕдинственное, что Вы знаете, так это то, что Вам надо выполнять появляющиеся на Вашем компьютере задачи" + "\n");
+        textView.setText(welcome.getAbout());
 
     }
 }
