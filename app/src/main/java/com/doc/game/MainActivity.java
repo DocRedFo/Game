@@ -95,10 +95,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Enter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-            }
-        });
+            public void onClick(View view) { Number.editTextString = editText.getText().toString();editText.setText(""); }});
 
         Welcome welcome = new Welcome();
         welcome.setAbout("\tДобро пожаловать!" +

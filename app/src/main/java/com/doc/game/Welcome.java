@@ -7,7 +7,7 @@ public class Welcome extends Number {
     public void welcome(){
         boolean f = false;
         while (!f){
-            String enter = mainActivity.editText.getText().toString();
+            String enter = Number.editTextString;
             if (enter.equals("") || enter.equals(" ") || enter.equals("   ") || enter.equals("  ")){
                 mainActivity.textView.setText("Неверное имя, попробуйте снова\nВведите имя:");
             }
@@ -23,7 +23,7 @@ public class Welcome extends Number {
     public void password(){
         boolean f = true;
         while (f) {
-            String enter = mainActivity.editText.getText().toString();
+            String enter = Number.editTextString;
             if (enter.equals("1")) {
                 PasswordsAndLogin();
                 Gamer.setProgress(Gamer.getProgress() + 1);

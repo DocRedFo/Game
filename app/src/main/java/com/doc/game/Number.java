@@ -1,6 +1,7 @@
 package com.doc.game;
 
 public abstract class Number {
+    public static String editTextString;
     //Команды
     private String help = "help";
     private String ls = "ls";
@@ -205,7 +206,7 @@ public abstract class Number {
     public void terminal(){
         boolean flag = true;
         while (flag){
-            String string = mainActivity.editText.getText().toString();
+            String string = Number.editTextString;
             if (string.equals(getHelp()) || string.equals(getHelp() + " ")){
                 String str = "\nСписок доступных команд:" +
                         "\nhelp - вызов помощи" +
@@ -379,7 +380,7 @@ public abstract class Number {
         boolean flag = true;
         while (flag){
             mainActivity.textView.setText("Введите ответ: ");
-            String string = mainActivity.editText.getText().toString();
+            String string = Number.editTextString;
             if (string.equals(getAnswer())){
                 mainActivity.textView.setText(getCheckTrueMassage());
                 flag = false;
@@ -396,7 +397,7 @@ public abstract class Number {
         boolean f = true;
         while (f) {
             mainActivity.textView.setText("Введите логин: ");
-            string = mainActivity.editText.getText().toString();
+            string = Number.editTextString;
             if (string.equals("root") || string.equals("admin")) {
                 Gamer.setLogin(string);
                 f = false;
@@ -406,7 +407,7 @@ public abstract class Number {
         }
         while (!f) {
             mainActivity.textView.setText("Введите пароль: ");
-            string = mainActivity.editText.getText().toString();
+            string = Number.editTextString;
             if (string.equals("root") || string.equals("admin") || string.equals("qwerty") || string.equals("123456")){
                 Gamer.setPassword(string);
                 f = true;
@@ -422,7 +423,7 @@ public abstract class Number {
         String string;
         while (flag) {
             mainActivity.textView.setText("Введите новый логин: ");
-            string = mainActivity.editText.getText().toString();
+            string = Number.editTextString;
             if (string.equals(Gamer.getLogin())){
                 mainActivity.textView.setText("Логины совпадают!");
             }
@@ -433,7 +434,7 @@ public abstract class Number {
         }
         while (!flag){
             mainActivity.textView.setText("Введите новый пароль: ");
-            string = mainActivity.editText.getText().toString();
+            string = Number.editTextString;
             if (string.equals(Gamer.getPassword())){
                 mainActivity.textView.setText("Пароли совпадают!");
             }
@@ -444,7 +445,7 @@ public abstract class Number {
                 Gamer.setPassword(string);
                 while (!flag) {
                     mainActivity.textView.setText("Подтвердите пароль: ");
-                    string = mainActivity.editText.getText().toString();
+                    string = Number.editTextString;
                     if (string.equals(Gamer.getPassword())) {
                         mainActivity.textView.setText("Поздравляем со сменой логина и пароля");
                         flag = true;
