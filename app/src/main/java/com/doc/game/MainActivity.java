@@ -95,13 +95,16 @@ public class MainActivity extends AppCompatActivity {
         });
         Enter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { Number.editTextString = editText.getText().toString();editText.setText(""); }});
+            public void onClick(View view) { Number.editTextString = editText.getText().toString();editText.setText("");}});
 
         Welcome welcome = new Welcome();
         welcome.setAbout("\tДобро пожаловать!" +
                 "\nЭто игра — текстовый квест, в котором Вас приняли на работу, на неизвестную должность, в неизвестную компанию" +
                 "\nЕдинственное, что Вы знаете, так это то, что Вам надо выполнять появляющиеся на Вашем компьютере задачи" + "\n");
         textView.setText(welcome.getAbout());
-
+        welcome.setAbout("\tДобро пожаловать!" +
+                "\nЭто игра — текстовый квест, в котором Вас приняли на работу, на неизвестную должность, в неизвестную компанию" + "\n");
+        textView.setText(welcome.getAbout());
+        //AsyncTask или https://stackoverflow.com/questions/4151499/edittext-onkeylistener-or-textwatcher-barcode-scanning https://ru.stackoverflow.com/questions/471272/edittext-программная-фокусировка-и-ожидание-ввода-android http://www.ohandroid.com/android-edittext-3.html
     }
 }
