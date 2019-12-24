@@ -19,7 +19,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         android:textColor="#000"
-        android:shadowColor="#fff"/>
+        android:shadowColor="#fff"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarSize="1dp"
+        android:scrollbarStyle="insideInset"/>
 
     <EditText
         android:id="@+id/editText"

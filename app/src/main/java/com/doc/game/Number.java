@@ -391,30 +391,28 @@ public abstract class Number {
         }
     }
     //Начало, Ввод пароля для входа и знакомство с механикой игры
-    public void begin(){
-        mainActivity.textView.setText("Все настройки находятся в изначальном состоянии, в том числе логины и пароли");
-        String string;
-        boolean f = true;
-        while (f) {
-            mainActivity.textView.setText("Введите логин: ");
+    public void beginLogin() {
+            String string;
             string = Number.editTextString;
             if (string.equals("root") || string.equals("admin")) {
                 Gamer.setLogin(string);
-                f = false;
+                MainActivity.textView.setText("Логин введён");
+                MainActivity.level++;
+
             } else {
-                mainActivity.textView.setText("Неверный логин или пароль. Попробуйте снова");
+                MainActivity.textView.setText("Неверный логин или пароль. Попробуйте снова");
             }
+    }
+    public void beginPassword(){
+        String string;
+        string = Number.editTextString;
+        if (string.equals("root") || string.equals("admin") || string.equals("qwerty") || string.equals("123456")){
+            Gamer.setPassword(string);
+            MainActivity.textView.setText("Пароль введён");
+            MainActivity.level++;
         }
-        while (!f) {
-            mainActivity.textView.setText("Введите пароль: ");
-            string = Number.editTextString;
-            if (string.equals("root") || string.equals("admin") || string.equals("qwerty") || string.equals("123456")){
-                Gamer.setPassword(string);
-                f = true;
-            }
-            else {
-                mainActivity.textView.setText("Неверный логин или пароль. Попробуйте снова");
-            }
+        else {
+            MainActivity.textView.setText("Неверный логин или пароль. Попробуйте снова");
         }
     }
     //Смена Логина и Пароля
