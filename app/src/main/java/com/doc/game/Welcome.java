@@ -6,7 +6,7 @@ public class Welcome extends Number {
 
     public void welcome(){
                 String enter = Number.editTextString;
-                if (enter.equals("") || enter.equals(" ") || enter.equals("   ") || enter.equals("  ")) {
+                if (enter.equals("") || enter.equals(" ") || enter.equals("   ") || enter.equals("  ") || enter.equals(null)) {
                     MainActivity.textView.setText("Неверное имя, попробуйте снова\nВведите имя:");
                 } else {
                     Gamer.setName(enter);
@@ -19,13 +19,11 @@ public class Welcome extends Number {
     public void password(){
             String enter = Number.editTextString;
             if (enter.equals("1")) {
-                PasswordsAndLogin();
                 Gamer.setProgress(Gamer.getProgress() + 1);
-                MainActivity.textView.setText("Вы удачно сменили логин и пароль");
                 MainActivity.level++;
             } else if (enter.equals("0")) {
                 MainActivity.textView.setText("Это ваше решение");
-                MainActivity.level++;
+                MainActivity.level+=5;
             } else {
                 MainActivity.textView.setText("Неизвестная команда, попробуйте снова");
             }
