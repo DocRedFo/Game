@@ -403,7 +403,7 @@ public abstract class Number {
         else if (string.equals(Gamer.getPassword())){
             MainActivity.textView.setText("Пароли совпадают!");
         }
-        if (string.equals(Gamer.getLogin())){
+        else if (string.equals(Gamer.getLogin())){
             MainActivity.textView.setText("Пароль не должен совпадать с логином!");
         }
         else {
@@ -419,7 +419,7 @@ public abstract class Number {
             MainActivity.textView.setText(string);
         }
         else {
-            String string = "Кажется, что у Вас что-то не получилось, " + Gamer.getName() + "\n" +
+            String string = "Сожалею, " + Gamer.getName() + "\n" +
                     "Вам не хватило до победы " + (5 - Gamer.getProgress()) + " баллов";
             MainActivity.textView.setText(string);
         }

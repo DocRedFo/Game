@@ -77,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
         numberOne.setFDir(1);
 
-        numberOne.setMassage("You can take flag: Qwerty");
+        numberOne.setMassage("You can take flag: Qwerty" +
+                "\nВведите:");
 
         numberOne.setAnswer("Qwerty");
 
@@ -137,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         numberTwo.setAnswer("a1Z26");
 
-        numberTwo.setCheckFailMassage("У Вас не получилось(");
+        numberTwo.setCheckFailMassage("У Вас не получилось, поробуйте ещё:");
 
 
 
@@ -269,8 +270,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 4:
                         welcome.beginLogin();
-                        PCname = "@" + Gamer.getLogin() + "/";
-                        path.setText(PCname);
+                        if (Gamer.getLogin() != null) {
+                            PCname = "@" + Gamer.getLogin() + "/";
+                            path.setText(PCname);
+                        }
                         break;
                     case 5:
                         textView.setText("Введите пароль:");
@@ -292,8 +295,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 10:
                         welcome.Login();
-                        PCname = "@" + Gamer.getLogin() + "/";
-                        path.setText(PCname);
+                        if (Gamer.getLogin() != null) {
+                            PCname = "@" + Gamer.getLogin() + "/";
+                            path.setText(PCname);
+                        }
                         break;
                     case 11:
                         textView.setText("Введите новый пароль: ");
