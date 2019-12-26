@@ -21,6 +21,7 @@ public class Welcome extends Number {
             if (enter.equals("1")) {
                 Gamer.setProgress(Gamer.getProgress() + 1);
                 MainActivity.level++;
+                MainActivity.textView.setText("Отличный выбор");
             } else if (enter.equals("0")) {
                 MainActivity.textView.setText("Это ваше решение");
                 MainActivity.level+=5;

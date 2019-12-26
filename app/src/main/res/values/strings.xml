@@ -12,4 +12,6 @@
     <string name="start">start</string>
     <string name="stop">stop</string>
     <string name="enter">Enter</string>
+    <string name="escape">Escape</string>
+    <string name="path" />
 </resources>

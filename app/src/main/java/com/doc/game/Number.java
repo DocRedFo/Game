@@ -259,21 +259,22 @@ public abstract class Number {
         } else if (string.equals(getCd()) || string.equals(getCd() + " ") || string.equals(getCd() + " " + "/") || string.equals(getCd() + " " + "..") ||
                 string.equals(getCd() + " " + ".." + " ")) {
             setDir(0);
+            MainActivity.path.setText(MainActivity.PCname);
         } else if (string.equals(getCd() + " " + getDesktop()) || string.equals(getCd() + " " + getDesktop() + " ") ||
                 string.equals(getCd() + " " + getDesktop() + "/")) {
-            if (getDir() == 0) setDir(2);
+            if (getDir() == 0){ setDir(2); MainActivity.path.setText(MainActivity.PCname + "Desktop");}
             else MainActivity.textView.setText("Каталог не найден");
         } else if (string.equals(getCd() + " " + getDownloads()) || string.equals(getCd() + " " + getDownloads() + " ")
                 || string.equals(getCd() + " " + getDownloads() + "/")) {
-            if (getDir() == 0) setDir(1);
+            if (getDir() == 0) {setDir(1); MainActivity.path.setText(MainActivity.PCname + "Downloads");}
             else MainActivity.textView.setText("Каталог не найден");
         } else if (string.equals(getCd() + " " + getDocuments()) || string.equals(getCd() + " " + getDocuments() + " ")
                 || string.equals(getCd() + " " + getDocuments() + "/")) {
-            if (getDir() == 0) setDir(3);
+            if (getDir() == 0) {setDir(3); MainActivity.path.setText(MainActivity.PCname + "Documents");}
             else MainActivity.textView.setText("Каталог не найден");
         } else if (string.equals(getCd() + " " + getMusic()) || string.equals(getCd() + " " + getMusic() + " ") ||
                 string.equals(getCd() + " " + getMusic() + "/")) {
-            if (getDir() == 0) setDir(4);
+            if (getDir() == 0) {setDir(4); MainActivity.path.setText(MainActivity.PCname + "Music");}
             else MainActivity.textView.setText("Каталог не найден");
         } else if (string.equals(getOpen()) || string.equals(getOpen() + " ")) {
             MainActivity.textView.setText("Введите аргумент");
@@ -396,7 +397,7 @@ public abstract class Number {
     public void Password(){
         String string;
         string = Number.editTextString;
-        if (string.equals("") || string.equals(" ") || string.equals("  ")){
+        if (string.equals("") || string.equals(" ") || string.equals("  ") || string.equals(null)){
             MainActivity.textView.setText("Вы ввели пустое значение!");
         }
         else if (string.equals(Gamer.getPassword())){
@@ -418,7 +419,8 @@ public abstract class Number {
             MainActivity.textView.setText(string);
         }
         else {
-            String string = "Кажется, что у Вас что-то не получилось, " + Gamer.getName();
+            String string = "Кажется, что у Вас что-то не получилось, " + Gamer.getName() + "\n" +
+                    "Вам не хватило до победы " + (5 - Gamer.getProgress()) + " баллов";
             MainActivity.textView.setText(string);
         }
     }

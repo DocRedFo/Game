@@ -9,31 +9,49 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="210dp"
-        android:gravity="center"
+        android:layout_height="150dp"
+        android:fillViewport="true"
+        android:gravity="center_vertical"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarSize="1dp"
         android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
         android:shadowColor="#fff"
         android:text="@string/textView"
         android:textColor="#000"
+        android:verticalScrollbarPosition="right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:verticalScrollbarPosition="right"
-        android:scrollbars="vertical"
-        android:fillViewport="true"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:shadowColor="#fff"
-        android:textColor="#000"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/Path"
+            android:layout_width="135dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:shadowColor="#fff"
+            android:text="@string/path"
+            android:textColor="#000"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:shadowColor="#fff"
+            android:textColor="#000" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -106,17 +124,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonEnter"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:shadowColor="#fff"
-        android:text="@string/enter"
-        android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -124,7 +131,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <Button
             android:id="@+id/buttonDesktop"
@@ -166,5 +173,27 @@
             android:textColor="#000"
             android:textSize="12sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonEnter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:shadowColor="#fff"
+        android:text="@string/enter"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <Button
+        android:id="@+id/buttonEscape"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:shadowColor="#fff"
+        android:text="@string/escape"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEnter" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static TextView textView;
     public static EditText editText;
+    public static TextView path;
+        public static String PCname;
     Button ButtonDesktop;
     Button ButtonDownloads;
     Button ButtonDocuments;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button ButtonStart;
     Button ButtonStop;
     Button Enter;
+    Button Escape;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
         editText = findViewById(R.id.editText);
+        path = findViewById(R.id.Path);
         ButtonDesktop = findViewById(R.id.buttonDesktop);
         ButtonDownloads = findViewById(R.id.buttonDownloads);
         ButtonDocuments = findViewById(R.id.buttonDocuments);
@@ -45,10 +49,11 @@ public class MainActivity extends AppCompatActivity {
         ButtonStart = findViewById(R.id.buttonStart);
         ButtonStop = findViewById(R.id.buttonStop);
         Enter = findViewById(R.id.buttonEnter);
+        Escape = findViewById(R.id.buttonEscape);
+
+        path.setText("start_pc");
 
         textView.setMovementMethod(new ScrollingMovementMethod());
-
-
 
         final Welcome welcome = new Welcome();
 
@@ -61,13 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         final NumberOne numberOne = new NumberOne();
 
         numberOne.setFriendName("Nick");
-
-        numberOne.setFriendMassage("Привет, " + Gamer.getName() + "\n" +
-                "Спишу тебе сообщить твоё первое задание. Тебе надо разобраться с управлением твоим компьютером, представляешь?\n" +
-                "Мне кажется, что наш работодатель совершенно не знает кто на него работает.\n" + "Ладно, удачи");
 
         numberOne.setQuestion("Задание: разберитесь с управлением, найдите файл helpFORyou и откройте его");
 
@@ -79,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
 
         numberOne.setAnswer("Qwerty");
 
-        numberOne.setCheckTrueMassage("Отлично сработано, " + Gamer.getName());
-
         numberOne.setCheckFailMassage("Попробуйте ещё раз");
+
 
 
 
@@ -136,9 +137,8 @@ public class MainActivity extends AppCompatActivity {
 
         numberTwo.setAnswer("a1Z26");
 
-        numberTwo.setCheckTrueMassage("Мои поздравления, " + Gamer.getName());
+        numberTwo.setCheckFailMassage("У Вас не получилось(");
 
-        numberTwo.setCheckFailMassage("У Вас не получилось, попробуйте снова");
 
 
 
@@ -163,11 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
         final Finish finish = new Finish();
-
-        finish.setEnd("Ваш счёт" + "\nУровень прогресса: " + Gamer.getProgress() + "\n\n\n" + "\t\t\tThe End" + "\n\n\n");
 
 
 
@@ -177,23 +173,23 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             String s = "";
-            if (level <= 13){
+            if (level <= 14){
                 s = "начальном";
             }
-            else if (level <= 20 && level > 13){
+            else if (level <= 21 && level > 13){
                 s = "первом";
             }
-            else if (level <= 25 && level > 20){
+            else if (level <= 26 && level > 20){
                 s = "втором";
             }
-            else if(level <= 32 && level > 25 ) {
+            else if(level <= 34 && level > 25 ) {
                 s = "третьем";
             }
-            else if (level <= 34 && level > 32 ){
+            else if (level <= 36 && level > 34 ){
                 s = "финишном";
             }
             String str = "Произошла ошибка!\nВы находитесь на " + s + " уровне" + ".\nДля решения проблемы нажмите enter";
-            if (level >= 35 ){
+            if (level >= 37 ){
                 str = "Произошла ошибка!\nВы находитесь на неизвестном уровне" + ".\nДля решения проблемы выйдите из игры и отчистите оперативную память";
             }
             textView.setText(str);
@@ -261,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         welcome.welcome();
+                        PCname = "@root/";
                         break;
                     case 2:
                         textView.setText("Все настройки находятся в изначальном состоянии, в том числе логины и пароли");
@@ -272,6 +269,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 4:
                         welcome.beginLogin();
+                        PCname = "@" + Gamer.getLogin() + "/";
+                        path.setText(PCname);
                         break;
                     case 5:
                         textView.setText("Введите пароль:");
@@ -293,6 +292,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 10:
                         welcome.Login();
+                        PCname = "@" + Gamer.getLogin() + "/";
+                        path.setText(PCname);
                         break;
                     case 11:
                         textView.setText("Введите новый пароль: ");
@@ -311,12 +312,16 @@ public class MainActivity extends AppCompatActivity {
                         level++;
                         break;
                     case 15:
-                        String str = "Сообщение от " + numberOne.getFriendName() + "\n" + numberOne.getFriendMassage();
+                        numberOne.setFriendMassage("Привет, " + Gamer.getName() + "\n" +
+                                "Спишу тебе сообщить твоё первое задание. Тебе надо разобраться с управлением твоим компьютером, представляешь?\n" +
+                                "Мне кажется, что наш работодатель совершенно не знает кто на него работает.\n" + "Ладно, удачи");
+
+                        String str = "\tСообщение от " + numberOne.getFriendName() + "\n" + numberOne.getFriendMassage();
                         textView.setText(str);
                         level++;
                         break;
                     case 16:
-                        String str1 = "\n\t" + numberOne.getQuestion() + "\n";
+                        String str1 = "\n" + numberOne.getQuestion() + "\n";
                         textView.setText(str1);
                         level++;
                         break;
@@ -324,6 +329,8 @@ public class MainActivity extends AppCompatActivity {
                         numberOne.terminal();
                         break;
                     case 18:
+                        numberOne.setCheckTrueMassage("Отлично сработано, " + Gamer.getName());
+
                         numberOne.check();
                         break;
                     case 19:
@@ -352,10 +359,16 @@ public class MainActivity extends AppCompatActivity {
                         level++;
                         break;
                     case 25:
+                        numberTwo.setCheckTrueMassage("Мои поздравления, " + Gamer.getName());
+
                         numberTwo.letterCheck();
                         break;
-                    //NumberThree
                     case 26:
+                        numberTwo.check();
+                        Gamer.setProgress(Gamer.getProgress() + 2);
+                        break;
+                    //NumberThree
+                    case 27:
                         if (Gamer.getProgress() >= 3) {
                             numberThree.setFriendMassage("Здравствуйте, " + Gamer.getName() + "\n" +
                                     "Так как Вы довольно успешно справляетесь с задниями, мы решили дать Вам более сложное и интерсное." +
@@ -370,45 +383,67 @@ public class MainActivity extends AppCompatActivity {
                                     "находящуюся в Documents и откройте файл index.html из Desktop, для запуска своего сайта");
                         }
                         level++;
-                    case 27:
+                    case 28:
                         textView.setText("Спустя неделю");
                         level++;
                         break;
-                    case 28:
+                    case 29:
                         String mail = "Сообщение от " + numberThree.getFriendName() + "\n" + numberThree.getFriendMassage();
                         textView.setText(mail);
                         level++;
                         break;
-                    case 29:
+                    case 30:
                         textView.setText(numberThree.getQuestion());
                         level++;
                         break;
-                    case 30:
+                    case 31:
                         numberThree.terminal();
                         break;
-                    case 31:
+                    case 32:
                         if (!numberThree.isPyFlag()){
                             textView.setText("Сайт упал. Для начала запустите python");
-                            level--;
                             numberThree.terminal();
                         }
                         else {
                             level++;
                         }
                         break;
-                    case 32:
+                    case 33:
                         numberThree.terminal();
                         break;
+                    case 34:
+                        numberThree.check();
+                        break;
                     //Finish
-                    case 33:
+                    case 35:
+                        finish.setEnd("Ваш счёт" + "\nУровень прогресса: " + Gamer.getProgress() + "\n\n\n" + "\t\t\tThe End" + "\n\n\n");
+
                         finish.finish();
                         level++;
                         break;
-                    case 34:
+                    case 36:
                         textView.setText(finish.getEnd());
                         break;
                 }
             }});
+        Escape.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (level == 0){}
+                else if (level == 1){
+                    textView.setText(welcome.getAbout());
+                    level--;
+                }
+                else if (level == 13){
+                    level = level - 5;
+                    Enter.callOnClick();
+                }
+                else {
+                    level = level - 2;
+                    Enter.callOnClick();
+                }
+            }
+        });
 
 
     }
