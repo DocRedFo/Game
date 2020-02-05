@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         ButtonStop = findViewById(R.id.buttonStop);
         Enter = findViewById(R.id.buttonEnter);
         Escape = findViewById(R.id.buttonEscape);
-
         path.setText("start_pc");
 
         textView.setMovementMethod(new ScrollingMovementMethod());
@@ -449,7 +450,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 }

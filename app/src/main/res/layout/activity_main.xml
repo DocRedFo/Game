@@ -45,6 +45,7 @@
 
         <EditText
             android:id="@+id/editText"
+            style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
@@ -64,6 +65,7 @@
 
         <Button
             android:id="@+id/buttonHelp"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -74,6 +76,7 @@
 
         <Button
             android:id="@+id/buttonLs"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -84,6 +87,7 @@
 
         <Button
             android:id="@+id/buttonCd"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -94,6 +98,7 @@
 
         <Button
             android:id="@+id/buttonOpen"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -104,6 +109,7 @@
 
         <Button
             android:id="@+id/buttonStart"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -114,6 +120,7 @@
 
         <Button
             android:id="@+id/buttonStop"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -135,6 +142,7 @@
 
         <Button
             android:id="@+id/buttonDesktop"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -145,6 +153,7 @@
 
         <Button
             android:id="@+id/buttonDownloads"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -155,6 +164,7 @@
 
         <Button
             android:id="@+id/buttonDocuments"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -165,6 +175,7 @@
 
         <Button
             android:id="@+id/buttonMusic"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -176,6 +187,7 @@
 
     <Button
         android:id="@+id/buttonEnter"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:shadowColor="#fff"
@@ -187,6 +199,7 @@
 
     <Button
         android:id="@+id/buttonEscape"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:shadowColor="#fff"
